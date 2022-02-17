@@ -7,19 +7,25 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { ThemeProvider, initializeIcons } from '@fluentui/react';
 
 import Loginpage from './Components/LoginPage';
 import HomePage from './Components/HomePage';
 
+// Initialize FluentUI Icons
+initializeIcons();
+
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={ <Loginpage /> } />
-        <Route path="/home" element={ <HomePage /> } />
-        <Route element={ Loginpage } />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ <Loginpage /> } />
+          <Route path="/home" element={ <HomePage /> } />
+          <Route element={ Loginpage } />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

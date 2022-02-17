@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import './loginpage.css';
 
+import { TextField, DefaultButton, Checkbox } from '@fluentui/react';
+
 let navigate;
 
 const loginButtonClick = () => {
@@ -17,10 +19,15 @@ const LoginPage = ({ ...props }) => {
         <div id="login-page">
             <div id="login-form">
                 <div id="input-fields">
-                    <input type="text" name="username" placeholder="User Name"/>
-                    <input type="password" name="userpassword" placeholder="Password"/>
+                    <TextField label='User Name' required/>
+                    <TextField label='Password' type='password' canRevealPassword revealPasswordAriaLabel='Show password'/>
                 </div>
-                <button type="submit" value="Submit" id="login-form-submit" onClick={loginButtonClick}>Login</button>
+                <div>
+                    <Checkbox label="Remember me" onChange={void(0)} />
+                </div>
+                <div>
+                    <DefaultButton onClick={() =>loginButtonClick()}>Login</DefaultButton>
+                </div>
             </div>
         </div>
     )
